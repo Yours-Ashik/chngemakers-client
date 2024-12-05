@@ -11,6 +11,8 @@ import AddCampaign from './assets/Pages/AddCampaign.jsx';
 import MyCampaign from './assets/Pages/MyCampaign.jsx';
 import Login from './assets/Pages/Login.jsx';
 import Register from './assets/Pages/Register.jsx';
+import Home from './assets/Pages/Home.jsx';
+import Provider from './assets/Provider/Provider.jsx';
 
 
 const router = createBrowserRouter([
@@ -19,8 +21,13 @@ const router = createBrowserRouter([
     element:<Root></Root> ,
     children:[
       {
+        path:"/",
+        element:<Home></Home>
+      },
+      {
         path:'/allCampaign',
-        element:<AllCampaign></AllCampaign>
+        element:<AllCampaign></AllCampaign>,
+        loader: () => fetch('http://localhost:5000/campaign')
       },
       {
         path:'/addCampaign',
@@ -44,6 +51,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <Provider>
     <RouterProvider router={router} />
+    </Provider>
   </StrictMode>,
 )
