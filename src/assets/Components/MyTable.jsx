@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MdDeleteForever, MdEdit } from "react-icons/md";
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 const MyTable = ({ campaign, index,handleDeleteFromParent }) => {
     
@@ -52,7 +53,7 @@ const MyTable = ({ campaign, index,handleDeleteFromParent }) => {
             <td>{email}</td>
             <div className='flex items-center gap-5 p-5'>
                 <button onClick={() => handleDelete(_id)} className='text-3xl text-red-600'><MdDeleteForever /></button>
-                <button className='text-2xl text-yellow-700'><MdEdit /></button>
+                <Link to={`/updateCampaign/${_id}`}><button className='text-2xl text-yellow-700'><MdEdit /></button></Link>
 
             </div>
         </tr>

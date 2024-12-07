@@ -16,6 +16,7 @@ import Provider from './assets/Provider/Provider.jsx';
 import Error from './assets/Components/Error.jsx';
 import PrivateRoutes from './assets/PrivateRoutes.jsx';
 import Details from './assets/Components/Details.jsx';
+import UpdateCampaign from './assets/Components/UpdateCampaign.jsx';
 
 
 const router = createBrowserRouter([
@@ -62,6 +63,11 @@ const router = createBrowserRouter([
           <Details></Details>
         </PrivateRoutes>,
         loader: ({params}) => fetch(`http://localhost:5000/details/${params.id}`)
+      },
+      {
+        path:'/updateCampaign/:id',
+        element:<UpdateCampaign></UpdateCampaign>,
+        loader: ({params}) => fetch(`http://localhost:5000/campaign/${params.id}`)
       }
     ]
   },

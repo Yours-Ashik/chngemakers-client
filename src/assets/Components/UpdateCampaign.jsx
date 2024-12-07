@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
-import Swal from 'sweetalert2'
+import { useLoaderData } from 'react-router-dom';
 import { authProvider } from '../Provider/Provider';
-const AddCampaign = () => {
-    const {user} = useContext(authProvider);
 
-    const handleAddCampaign = (e) => {
+const UpdateCampaign = () => {
+    const campaign = useLoaderData();
+    const { title, image, type, description, amount, deadline, _id } = campaign;
+    const {user} = useContext(authProvider);
+    const handleUpdateCampaign = (e) => {
         e.preventDefault();
         const form = e.target;
 
@@ -17,15 +19,13 @@ const AddCampaign = () => {
         const name = form.name.value;
         const image = form.image.value;
 
-        const campaign = { title, type, description, amount, deadline, email, name, image }
-        console.log(campaign)
+        const UpdatedCampaign = { title, type, description, amount, deadline, email, name, image }
+        console.log(UpdatedCampaign)
 
-        fetch(`http://localhost:5000/campaign`, {
-            method: 'POST',
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(campaign)
+        fetch(`http://localhost:5000/campaign/${_id}`, {
+            method: 'PUT',
+            
+            body: JSON.stringify(UpdatedCampaign)
         })
             .then(res => res.json())
             .then(data => {
@@ -36,24 +36,26 @@ const AddCampaign = () => {
                         text: 'Your campaign added successfully',
                         icon: 'success',
                         confirmButtonText: 'ok'
-                        })
+                    })
                 }
 
             })
     }
 
+
+
     return (
         <div>
-            <h2 className='text-3xl my-5 text-center font-bold'>Add Your Campaign</h2>
+            <h2 className='text-3xl my-5 text-center font-bold'>Update Your Campaign</h2>
             <div className=" bg-base-100 w-full lg:my-10 rounded-xl  shrink-0 shadow-2xl">
-                <form onSubmit={handleAddCampaign} className="card-body">
+                <form onSubmit={handleUpdateCampaign} className="card-body">
                     <div className="lg:flex gap-4 lg:my-3">
                         {/* title Input */}
                         <div className="form-control w-full">
                             <label className="label">
                                 <span className="label-text">campaign title</span>
                             </label>
-                            <input type="text" name='title' placeholder="title" className="input input-bordered" required />
+                            <input type="text" name='title' defaultValue={title} placeholder="title" className="input input-bordered" required />
                         </div>
 
                         {/* type Input */}
@@ -61,7 +63,7 @@ const AddCampaign = () => {
                             <label className="label">
                                 <span className="label-text">campaign type</span>
                             </label>
-                            <input type="text" name='type' placeholder="campaign type" className="input input-bordered" required />
+                            <input type="text" defaultValue={type} name='type' placeholder="campaign type" className="input input-bordered" required />
                         </div>
                     </div>
                     <div className="lg:flex gap-4 lg:my-3">
@@ -70,7 +72,7 @@ const AddCampaign = () => {
                             <label className="label">
                                 <span className="label-text">description</span>
                             </label>
-                            <input type="text" placeholder="description" name='description' className="input input-bordered" required />
+                            <input type="text" defaultValue={description} placeholder="description" name='description' className="input input-bordered" required />
                         </div>
 
                         {/* amount Input */}
@@ -78,7 +80,7 @@ const AddCampaign = () => {
                             <label className="label">
                                 <span className="label-text">Minimum donation amount</span>
                             </label>
-                            <input type="number" placeholder="Minimum donation amount" name='amount' className="input input-bordered" required />
+                            <input type="number" placeholder="Minimum donation amount" name='amount' defaultValue={amount} className="input input-bordered" required />
                         </div>
                     </div>
                     <div className="lg:flex gap-4 lg:my-3">
@@ -87,7 +89,7 @@ const AddCampaign = () => {
                             <label className="label">
                                 <span className="label-text">Deadline</span>
                             </label>
-                            <input type="date" placeholder="Deadline" name='deadline' className="input input-bordered" required />
+                            <input type="date" defaultValue={deadline} placeholder="Deadline" name='deadline' className="input input-bordered" required />
                         </div>
 
                         {/* email Input */}
@@ -113,7 +115,7 @@ const AddCampaign = () => {
                             <label className="label">
                                 <span className="label-text">image</span>
                             </label>
-                            <input type="text" name='image' placeholder="image" className="input input-bordered" required />
+                            <input type="text" name='image' defaultValue={image} placeholder="image" className="input input-bordered" required />
                         </div>
                     </div>
 
@@ -127,8 +129,7 @@ const AddCampaign = () => {
                 </form>
             </div>
         </div>
-
     );
 };
 
-export default AddCampaign;
+export default UpdateCampaign;
