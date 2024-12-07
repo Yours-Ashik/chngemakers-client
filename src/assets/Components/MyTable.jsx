@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { MdDeleteForever, MdEdit } from "react-icons/md";
 import Swal from 'sweetalert2';
-const MyTable = ({ campaign, index }) => {
+const MyTable = ({ campaign, index,handleDeleteFromParent }) => {
+    
     const { email, name, type, title, _id } = campaign;
     
     
@@ -26,25 +27,25 @@ const MyTable = ({ campaign, index }) => {
                 .then(res => res.json())
                 .then(data => {
                     if(data.deletedCount > 0){
+
                         Swal.fire({
                     title: "Deleted!",
                     text: "Your campaign has been deleted.",
                     icon: "success"
                 });
+
+                handleDeleteFromParent(id)
+
                     }
                 })
-                // Swal.fire({
-                //     title: "Deleted!",
-                //     text: "Your file has been deleted.",
-                //     icon: "success"
-                // });
+                
             }
         });
     }
 
     return (
 
-        <tr>
+        <tr className=''>
             <th>{index + 1}</th>
             <td>{title}</td>
             <td>{type}</td>

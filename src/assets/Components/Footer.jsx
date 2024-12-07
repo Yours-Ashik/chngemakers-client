@@ -2,8 +2,8 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div className='relative min-h-screen'>
-            <footer className="footer bg-base-200 text-base-content p-10 absolute bottom-0 w-full">
+        
+            <footer className="footer bg-base-200 text-base-content p-10  w-full">
                 <aside>
                     <svg
                         width="50"
@@ -43,7 +43,7 @@ const Footer = () => {
                     <a className="link link-hover">Cookie policy</a>
                 </nav>
             </footer>
-        </div>
+        
     );
 };
 

@@ -8,6 +8,7 @@ const MyCampaign = () => {
     const email = user?.email;
     const [myCampaign, setMyCampaign] = useState([]);
 
+    
     useEffect(() => {
         if (email) {
 
@@ -30,6 +31,10 @@ const MyCampaign = () => {
         }
     }, [email]);
 
+    const handleDeleteFromParent = (id) => {
+        const remainingCampaigns = myCampaign.filter((campaign) => campaign._id !== id);
+        setMyCampaign(remainingCampaigns);
+    };
 
 
     return (
@@ -49,11 +54,13 @@ const MyCampaign = () => {
                     <tbody>
                         {/* row 1 */}
                         {
-                            myCampaign.map((campaign,index) => <MyTable
+                            myCampaign.map((campaign, index) => <MyTable
                                 campaign={campaign}
                                 index={index}
+                                handleDeleteFromParent={handleDeleteFromParent}
+
                                 key={index}
-                                ></MyTable>)
+                            ></MyTable>)
                         }
                         {/* row 2 */}
 
