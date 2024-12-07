@@ -13,25 +13,34 @@ import Login from './assets/Pages/Login.jsx';
 import Register from './assets/Pages/Register.jsx';
 import Home from './assets/Pages/Home.jsx';
 import Provider from './assets/Provider/Provider.jsx';
+import Error from './assets/Components/Error.jsx';
+import PrivateRoutes from './assets/PrivateRoutes.jsx';
+import Details from './assets/Components/Details.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element:<Root></Root> ,
+    errorElement:<Error></Error>,
     children:[
       {
         path:"/",
-        element:<Home></Home>
+        element:<Home></Home>,
+        loader: () => fetch('http://localhost:5000/campaign')
       },
       {
         path:'/allCampaign',
-        element:<AllCampaign></AllCampaign>,
+        element:<PrivateRoutes>
+          <AllCampaign></AllCampaign>
+        </PrivateRoutes>,
         loader: () => fetch('http://localhost:5000/campaign')
       },
       {
         path:'/addCampaign',
-        element:<AddCampaign></AddCampaign>
+        element:<PrivateRoutes>
+          <AddCampaign></AddCampaign>
+        </PrivateRoutes>
       },
       {
         path:'/myCampaign',
@@ -45,6 +54,13 @@ const router = createBrowserRouter([
         path:'/register',
         element:<Register></Register>
       },
+      {
+        path: '/details/:id',
+        element:<PrivateRoutes>
+          <Details></Details>
+        </PrivateRoutes>,
+        loader: ({params}) => fetch(`http://localhost:5000/details/${params.id}`)
+      }
     ]
   },
 ]);

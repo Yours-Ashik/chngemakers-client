@@ -1,12 +1,9 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const CampaignCard = ({ data }) => {
-    const { title, image, type, description, amount, deadline, _id } = data
+const RunningCampaignCard = ({runCam}) => {
+    const { title, image, type, description, amount, deadline, _id } = runCam
     const navigate = useNavigate();
-
-    
-
     return (
         <div className="card card-compact bg-base-100 shadow-xl">
             <figure>
@@ -29,4 +26,4 @@ const CampaignCard = ({ data }) => {
     );
 };
 
-export default CampaignCard;
+export default RunningCampaignCard;

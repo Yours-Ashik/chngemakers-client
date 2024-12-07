@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { authProvider } from '../Provider/Provider';
 import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 
 const Login = () => {
@@ -17,7 +18,14 @@ const Login = () => {
         handleLogin(email, password)
             .then(data => {
                 console.log(data)
+                Swal.fire({
+                    title: 'success',
+                    text: 'You have logged in successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                })
                 form.reset();
+                
                 navigate('/')
             })
             .catch(err => {
@@ -29,6 +37,12 @@ const Login = () => {
         e.preventDefault();
         handleGoogleLogin()
             .then(() => {
+                Swal.fire({
+                    title: 'success',
+                    text: 'You have logged in successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                })
                 navigate('/')
             })
 
@@ -57,9 +71,9 @@ const Login = () => {
                         <button className="btn btn-primary">Login</button>
                     </div>
                     <button onClick={submitGoogleLogin} className="btn btn-warning">Login With Google</button>
-                <h2 className='my-3'>Don't have an account please <Link className='text-blue-600' to='/register'>Register</Link></h2>
+                    <h2 className='my-3'>Don't have an account please <Link className='text-blue-600' to='/register'>Register</Link></h2>
                 </form>
-                
+
             </div>
         </div>
     );

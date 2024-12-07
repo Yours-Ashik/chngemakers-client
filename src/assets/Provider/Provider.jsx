@@ -8,6 +8,7 @@ export const authProvider = createContext(null)
 
 const Provider = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
     const googleProvider = new GoogleAuthProvider();
 
     const handleRegister = (email, password) => {
@@ -27,40 +28,32 @@ const Provider = ({ children }) => {
     }
 
 
+    
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth,(currentUser)=>{
-            console.log(currentUser)
-            if(currentUser) {
-                setUser(currentUser)
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            console.log(currentUser);
+            if (currentUser) {
+                setUser(currentUser);
+            } else {
+                setUser(null);
             }
-            else{
-                setUser(null)
-            }
-            return () => {
-                unsubscribe()
-            }
-        })
-    },[])
-    // useEffect(() => {
-    //     const unsubscribe = onAuthStateChanged(auth,(currentUser)=> {
-    //         console.log(currentUser)
-    //         if(currentUser){
-    //             setUser(currentUser)
-    //         }
-    //         else{
-    //             setUser(null)
-    //         }
-    //         return () => {
-    //             unsubscribe()
-    //         }
-    //     })
-    // }, [])
+            setLoading(false); // Ensure this runs after setting the user state
+        });
+    
+        return () => {
+            unsubscribe(); // Properly clean up the listener
+        };
+    }, []);
 
     const authInfo = {
         handleRegister,
         handleGoogleLogin,
         handleLogin,
-        handleSingOut
+        handleSingOut,
+        user,
+        setUser,
+        loading,
+        setLoading
     }
     return (
         <authProvider.Provider value={authInfo}>

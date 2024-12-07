@@ -1,8 +1,26 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { authProvider } from '../Provider/Provider';
+import { signOut } from 'firebase/auth';
+import { auth } from '../firebase/firebase.init';
 
 const Navbar = () => {
+    const { user, handleSingOut } = useContext(authProvider)
+    
+    const navigate = useNavigate();
+    const submitLogout = () => {
+        signOut(auth)
+            .then(() => {
+                navigate('/login')
+                Swal.fire({
+                    title: 'Logout success',
+                    text: 'Do you want to continue',
+                    icon: 'success',
+                    confirmButtonText: 'ok'
+                })
+            })
 
+    }
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -25,26 +43,32 @@ const Navbar = () => {
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                         <li><Link to='/'>Home</Link></li>
-                        <li><Link to='/allCampaign'>All Campaign</Link></li>
-                        <li><Link to='/AddCampaign'>Add New Campaign</Link></li>
-                        <li><Link to='/MyCampaign'>My Campaign</Link></li>
+                    <li><Link to='/allCampaign'>All Campaign</Link></li>
+                    <li><Link to='/addCampaign'>Add New Campaign</Link></li>
+                    <li><Link to='/myCampaign'>My Campaign</Link></li>
 
-                        
+
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <a className="btn btn-ghost text-xl"><Link to='/'>ChangeMakers</Link></a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     <li><Link to='/'>Home</Link></li>
-                        <li><Link to='/allCampaign'>All Campaign</Link></li>
-                        <li><Link to='/addCampaign'>Add New Campaign</Link></li>
-                        <li><Link to='/myCampaign'>My Campaign</Link></li>
-                        <li><Link to='/login'>Login</Link></li>
+                    <li><Link to='/allCampaign'>All Campaign</Link></li>
+                    <li><Link to='/addCampaign'>Add New Campaign</Link></li>
+                    <li><Link to='/myCampaign'>My Campaign</Link></li>
+                    
+
+
+
+
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+            {
+                        user ? <button className='btn btn-primary' onClick={submitLogout}>Logout</button>: <button><Link className='btn btn-primary' to='/login'>Login</Link></button>
+                    }
             </div>
         </div>
     );

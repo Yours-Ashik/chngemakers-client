@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Swal from 'sweetalert2'
+import { authProvider } from '../Provider/Provider';
 const AddCampaign = () => {
+    const {user} = useContext(authProvider);
 
     const handleAddCampaign = (e) => {
         e.preventDefault();
@@ -30,11 +32,11 @@ const AddCampaign = () => {
                 // console.log(data)
                 if (data.insertedId) {
                     Swal.fire({
-                        icon: "success",
-                        title: "Campaign added successfully",
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
+                        title: 'Successfully added',
+                        text: 'Your campaign added successfully',
+                        icon: 'success',
+                        confirmButtonText: 'ok'
+                      })
                 }
 
             })
@@ -93,7 +95,7 @@ const AddCampaign = () => {
                             <label className="label">
                                 <span className="label-text">User Email</span>
                             </label>
-                            <input type="text" placeholder="User Email" name='email' className="input input-bordered" required />
+                            <input type="text" value={user?.email} placeholder="User Email" name='email' className="input input-bordered" required />
                         </div>
 
                     </div>
@@ -103,7 +105,7 @@ const AddCampaign = () => {
                             <label className="label">
                                 <span className="label-text">User Name</span>
                             </label>
-                            <input type="text" placeholder="User Name" name='name' className="input input-bordered" required />
+                            <input type="text" value={user?.displayName} placeholder="User Name" name='name' className="input input-bordered" required />
                         </div>
 
                         {/* image Input */}
