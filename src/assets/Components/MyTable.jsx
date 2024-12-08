@@ -22,7 +22,7 @@ const MyTable = ({ campaign, index,handleDeleteFromParent }) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 
-                fetch(`http://localhost:5000/campaign/${id}`,{
+                fetch(`https://y-khaki-five.vercel.app/campaign/${id}`,{
                     method: "DELETE"
                 })
                 .then(res => res.json())

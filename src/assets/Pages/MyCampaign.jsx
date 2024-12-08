@@ -14,7 +14,7 @@ const MyCampaign = () => {
 
             console.log("Fetching campaigns for email:", email);
 
-            fetch(`http://localhost:5000/myCampaign/search?email=${email}`, {
+            fetch(`https://y-khaki-five.vercel.app/myCampaign/search?email=${email}`, {
                 method: "GET",
                 headers: {
                     'content-type': "application/json"

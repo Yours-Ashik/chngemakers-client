@@ -20,7 +20,7 @@ const AddCampaign = () => {
         const campaign = { title, type, description, amount, deadline, email, name, image }
         console.log(campaign)
 
-        fetch(`http://localhost:5000/campaign`, {
+        fetch(`https://y-khaki-five.vercel.app/campaign`, {
             method: 'POST',
             headers: {
                 "content-type": "application/json"

@@ -28,14 +28,14 @@ const router = createBrowserRouter([
       {
         path:"/",
         element:<Home></Home>,
-        loader: () => fetch('http://localhost:5000/campaign')
+        loader: () => fetch('https://y-khaki-five.vercel.app/campaign')
       },
       {
         path:'/allCampaign',
         element:<PrivateRoutes>
           <AllCampaign></AllCampaign>
         </PrivateRoutes>,
-        loader: () => fetch('http://localhost:5000/campaign')
+        loader: () => fetch('https://y-khaki-five.vercel.app/campaign')
       },
       {
         path:'/addCampaign',
@@ -62,14 +62,14 @@ const router = createBrowserRouter([
         element:<PrivateRoutes>
           <Details></Details>
         </PrivateRoutes>,
-        loader: ({params}) => fetch(`http://localhost:5000/details/${params.id}`)
+        loader: ({params}) => fetch(`https://y-khaki-five.vercel.app/details/${params.id}`)
       },
       {
         path:'/updateCampaign/:id',
         element:<PrivateRoutes>
           <UpdateCampaign></UpdateCampaign>
         </PrivateRoutes>,
-        loader: ({params}) => fetch(`http://localhost:5000/campaign/${params.id}`)
+        loader: ({params}) => fetch(`https://y-khaki-five.vercel.app/campaign/${params.id}`)
       }
     ]
   },

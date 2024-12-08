@@ -23,7 +23,7 @@ const UpdateCampaign = () => {
         const UpdatedCampaign = { title, type, description, amount, deadline, email, name, image }
         console.log(UpdatedCampaign)
 
-        fetch(`http://localhost:5000/campaign/${_id}`, {
+        fetch(`https://y-khaki-five.vercel.app/campaign/${_id}`, {
             method: 'PUT',
             headers:{
                 "content-type":"application/json"
