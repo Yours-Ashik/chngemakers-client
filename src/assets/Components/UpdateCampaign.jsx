@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { authProvider } from '../Provider/Provider';
+import Swal from 'sweetalert2';
 
 const UpdateCampaign = () => {
     const campaign = useLoaderData();
@@ -24,16 +25,19 @@ const UpdateCampaign = () => {
 
         fetch(`http://localhost:5000/campaign/${_id}`, {
             method: 'PUT',
+            headers:{
+                "content-type":"application/json"
+            },
             
             body: JSON.stringify(UpdatedCampaign)
         })
             .then(res => res.json())
             .then(data => {
                 // console.log(data)
-                if (data.insertedId) {
+                if (data.modifiedCount) {
                     Swal.fire({
-                        title: 'Successfully added',
-                        text: 'Your campaign added successfully',
+                        title: 'Successful',
+                        text: 'Your campaign updated successfully',
                         icon: 'success',
                         confirmButtonText: 'ok'
                     })

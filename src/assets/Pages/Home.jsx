@@ -4,6 +4,7 @@ import HowWeWorks from '../Components/HowWeWorks';
 import RunningCampaign from '../Components/RunningCampaign';
 import CampaignCard from '../Components/CampaignCard';
 import { useLoaderData } from 'react-router-dom';
+import Slider from '../Components/Slider';
 
 const Home = () => {
 
@@ -11,6 +12,9 @@ const Home = () => {
 
     return (
         <div>
+            <div className='my-10'>
+                <Slider></Slider>
+            </div>
             <div>
             <Banner></Banner>
             </div>
