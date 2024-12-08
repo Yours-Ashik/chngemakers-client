@@ -1,8 +1,17 @@
-# React + Vite
+Readme.md: Add a meaningful readme.md file with the name of your website and a live site URL. Include a minimum of five bullet points to feature your website.  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Project Name: ChangeMakers
 
-Currently, two official plugins are available:
+Live Link:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Bullets Point: 
+
+1. Responsive UI: Seamlessly integrates into any React project with modern styling and responsive design.
+
+2. Lightweight & Efficient: Leverages Tailwind's utility-first approach and Daisy UI's theme management for minimal setup and performance.
+
+3. Fully Customizable: Easily extend or modify the themes by editing tailwind.config.js for personalized designs.
+
+4. Eye catching alert for users to show success or error message
+
+5.  Minimal & Powerful: Utilizes Tailwind's utility-first CSS and Daisy UI's built-in theme support for efficiency.
