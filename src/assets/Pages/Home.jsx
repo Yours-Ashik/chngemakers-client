@@ -7,7 +7,7 @@ import { useLoaderData } from 'react-router-dom';
 import Slider from '../Components/Slider';
 
 const Home = () => {
-
+    
     const data = useLoaderData();
 
     return (
