@@ -49,10 +49,10 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <h2 className='text-3xl font-bold text-center my-10'>Please Login Your Account</h2>
-            <div className="min-h-screen lg:w-[40%]  mx-auto my-10">
-                <form onSubmit={submitLogin} className="card-body mx-auto shadow-xl bg-white rounded-lg">
+        <div className='w-[80%] mx-auto'>
+            <h2 className='text-3xl font-bold text-center pt-28 pb-10 lg:pt-32 lg:pb-10'>Please Login Your Account</h2>
+            <div className="min-h-screen lg:w-[40%]  mx-auto ">
+                <form onSubmit={submitLogin} className="card-body mx-auto shadow-xl bg-[#F8F5F2] rounded-lg">
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Email</span>

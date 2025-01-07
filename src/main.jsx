@@ -22,54 +22,52 @@ import UpdateCampaign from './assets/Components/UpdateCampaign.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
-    element:<Root></Root> ,
-    errorElement:<Error></Error>,
-    children:[
+    element: <Root></Root>,
+    errorElement: <Error></Error>,
+    children: [
       {
-        path:"/",
-        element:<Home></Home>,
+        path: "/",
+        element: <Home></Home>,
         loader: () => fetch('https://y-khaki-five.vercel.app/campaign')
       },
       {
-        path:'/allCampaign',
-        element:<PrivateRoutes>
-          <AllCampaign></AllCampaign>
-        </PrivateRoutes>,
+        path: '/allCampaign',
+        element: 
+          <AllCampaign></AllCampaign> ,
         loader: () => fetch('https://y-khaki-five.vercel.app/campaign')
       },
       {
-        path:'/addCampaign',
-        element:<PrivateRoutes>
+        path: '/addCampaign',
+        element: <PrivateRoutes>
           <AddCampaign></AddCampaign>
         </PrivateRoutes>
       },
       {
-        path:'/myCampaign',
-        element:<PrivateRoutes>
+        path: '/myCampaign',
+        element: <PrivateRoutes>
           <MyCampaign></MyCampaign>
         </PrivateRoutes>
       },
       {
-        path:'/login',
-        element:<Login></Login>
+        path: '/login',
+        element: <Login></Login>
       },
       {
-        path:'/register',
-        element:<Register></Register>
+        path: '/register',
+        element: <Register></Register>
       },
       {
         path: '/details/:id',
-        element:<PrivateRoutes>
-          <Details></Details>
-        </PrivateRoutes>,
-        loader: ({params}) => fetch(`https://y-khaki-five.vercel.app/details/${params.id}`)
+        element:
+          <Details></Details>,
+          loader: ({ params }) => fetch(`https://y-khaki-five.vercel.app/details/${params.id}`)
       },
       {
-        path:'/updateCampaign/:id',
-        element:<PrivateRoutes>
+        path: '/updateCampaign/:id',
+        element: <PrivateRoutes>
           <UpdateCampaign></UpdateCampaign>
         </PrivateRoutes>,
-        loader: ({params}) => fetch(`https://y-khaki-five.vercel.app/campaign/${params.id}`)
+        loader: ({ params }) => fetch(`https://y-khaki-five.vercel.app/campaign/${params.id}`)
       }
     ]
   },
@@ -78,7 +76,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider>
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </Provider>
   </StrictMode>,
 )

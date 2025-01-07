@@ -35,10 +35,10 @@ const Register = () => {
 
     return (
 
-        <div>
-            <h2 className='text-2xl font-bold my-10 text-center'>Register Your Account</h2>
-            <div className="min-h-screen lg:w-[40%]  mx-auto my-10 lg:my-15">
-                <form onSubmit={submitRegister} className="card-body mx-auto shadow-xl bg-white rounded-lg">
+        <div className='w-[80%] mx-auto'>
+            <h2 className='text-2xl font-bold pt-28 pb-10 lg:pt-32 lg:pb-10 text-center'>Register Your Account</h2>
+            <div className="min-h-screen lg:w-[40%]  mx-auto my-5 lg:my-15">
+                <form onSubmit={submitRegister} className="card-body bg-[#F8F5F2] mx-auto shadow-xl  rounded-lg">
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Name</span>

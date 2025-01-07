@@ -38,7 +38,7 @@ const MyCampaign = () => {
 
 
     return (
-        <div className='my-10 lg:my-20'>
+        <div className='py-20 lg:py-28 w-[80%] mx-auto min-h-screen'>
             <div className="overflow-x-auto ">
                 <table className="table table-zebra">
                     {/* head */}

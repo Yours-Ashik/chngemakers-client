@@ -5,6 +5,7 @@ import RunningCampaign from '../Components/RunningCampaign';
 import CampaignCard from '../Components/CampaignCard';
 import { useLoaderData } from 'react-router-dom';
 import Slider from '../Components/Slider';
+import ContactUs from '../Components/ContactUs';
 
 const Home = () => {
     
@@ -12,16 +13,19 @@ const Home = () => {
 
     return (
         <div>
-            <div className='my-10'>
+            <div className=''>
                 <Slider></Slider>
             </div>
-            <div>
+            <div className='w-[80%] mx-auto lg:my-20 my-10'>
             <Banner></Banner>
             </div>
-            <div>
+            <div className='w-[80%] mx-auto lg:my-20 my-10'>
                 <RunningCampaign data={data}></RunningCampaign>
             </div>
-            <div>
+            <div className='w-[80%] mx-auto lg:my-20 my-10'>
+                <ContactUs></ContactUs>
+            </div>
+            <div className='w-[80%] mx-auto lg:my-20 my-10'>
                 <HowWeWorks></HowWeWorks>
             </div>
         </div>

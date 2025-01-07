@@ -43,9 +43,9 @@ const AddCampaign = () => {
     }
 
     return (
-        <div>
-            <h2 className='text-3xl my-5 text-center font-bold'>Add Your Campaign</h2>
-            <div className=" bg-base-100 w-full lg:my-10 rounded-xl  shrink-0 shadow-2xl">
+        <div className='w-[80%] mx-auto min-h-screen '>
+            <h2 className='text-3xl lg:pt-32 pt-28 pb-10 text-center font-bold'>Add Your Campaign</h2>
+            <div className=" bg-[#F8F5F2] w-full lg:my-10 rounded-xl  shrink-0 shadow-2xl">
                 <form onSubmit={handleAddCampaign} className="card-body">
                     <div className="lg:flex gap-4 lg:my-3">
                         {/* title Input */}
@@ -122,7 +122,7 @@ const AddCampaign = () => {
 
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn btn-primary">Add</button>
+                        <button className="btn btn-primary border-none hover:bg-gray-200 bg-[#ebaa8f] text-black">Add</button>
                     </div>
                 </form>
             </div>

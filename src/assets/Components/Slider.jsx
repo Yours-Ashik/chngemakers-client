@@ -1,36 +1,28 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
+import { Pagination } from 'swiper/modules';
 
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+// import required modules
+import img1 from "../../assets/img1.jpg"
+import img2 from "../../assets/img2.jpg"
+import img4 from "../../assets/img4.jpg"
 const Slider = () => {
     return (
-        <div className="carousel w-full rounded-xl">
-            <div id="slide1" className="carousel-item relative w-full">
-                <img
-                    src="https://i.ibb.co.com/Y72jfzZ/DALL-E-2024-12-08-12-08-32-1-A-snowy-village-with-a-family-receiving-a-package-of-warm-clothing-and.webp"
-                    className="w-full" />
-                <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                    <a href="#slide3" className="btn btn-circle">❮</a>
-                    <a href="#slide2" className="btn btn-circle">❯</a>
-                </div>
-            </div>
-            <div id="slide2" className="carousel-item relative w-full">
-                <img
-                    src="https://i.ibb.co.com/tm8s5Nq/DALL-E-2024-12-08-12-08-30-1-A-group-of-volunteers-distributing-winter-clothing-to-families-in-need.webp"
-                    className="w-full" />
-                <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                    <a href="#slide1" className="btn btn-circle">❮</a>
-                    <a href="#slide3" className="btn btn-circle">❯</a>
-                </div>
-            </div>
-            <div id="slide3" className="carousel-item relative w-full">
-                <img
-                    src="https://i.ibb.co.com/vBdrdsL/DALL-E-2024-12-08-12-08-28-1-A-diverse-group-of-people-joining-hands-in-a-heart-shape-symbolizing-un.webp"
-                    className="w-full" />
-                <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                    <a href="#slide2" className="btn btn-circle">❮</a>
-                    <a href="#slide1" className="btn btn-circle">❯</a>
-                </div>
-            </div>
-            
+        <div className="carousel w-full">
+            <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
+                <SwiperSlide><img className='lg:h-[80vh] w-full object-cover' src={img1} alt="" /></SwiperSlide>
+                <SwiperSlide><img className='lg:h-[80vh] w-full object-cover' src={img2} alt="" /></SwiperSlide>
+                <SwiperSlide><img className='lg:h-[80vh] w-full object-cover' src={img4} alt="" /></SwiperSlide>
+                
+                
+            </Swiper>
+
         </div>
     );
 };

@@ -16,10 +16,10 @@ const AllCampaign = () => {
     };
 
     return (
-        <div>
-            <h2 className='text-3xl text-center font-bold my-5 lg:my-20'>Here are all our campaigns</h2>
-            <button onClick={sortByAmount} className='btn btn-primary'>Sort by minimum amount</button>
-            <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-5 my-5 lg:my-20'>
+        <div className='w-[80%] mx-auto'>
+            <h2 className='text-3xl  text-center font-bold  pt-28 '>All Campaign</h2>
+            <button onClick={sortByAmount} className='btn btn-primary text-black border-none hover:bg-gray-200 bg-[#ebaa8f] my-10'>Sort by minimum amount</button>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-5  '>
                 {campaigns.map(campaign => (
                     <CampaignCard key={campaign._id} data={campaign}></CampaignCard>
                 ))}

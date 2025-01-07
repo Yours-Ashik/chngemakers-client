@@ -49,10 +49,10 @@ const UpdateCampaign = () => {
 
 
     return (
-        <div>
+        <div className='w-[80%] mx-auto py-20'>
             <h2 className='text-3xl my-5 text-center font-bold'>Update Your Campaign</h2>
             <div className=" bg-base-100 w-full lg:my-10 rounded-xl  shrink-0 shadow-2xl">
-                <form onSubmit={handleUpdateCampaign} className="card-body">
+                <form onSubmit={handleUpdateCampaign} className="card-body bg-[#F8F5F2]">
                     <div className="lg:flex gap-4 lg:my-3">
                         {/* title Input */}
                         <div className="form-control w-full">
@@ -128,7 +128,7 @@ const UpdateCampaign = () => {
 
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn btn-primary">Add</button>
+                        <button className="btn btn-primary border-none hover:bg-gray-200 bg-[#ebaa8f] text-black">Add</button>
                     </div>
                 </form>
             </div>

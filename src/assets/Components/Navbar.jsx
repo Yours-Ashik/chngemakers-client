@@ -33,8 +33,19 @@ const Navbar = () => {
             .catch((error) => console.error('Logout Error:', error));
     };
 
+    const links = <>
+    
+        <li><Link to='/'>HOME</Link></li>
+        <li><a className='uppercase' href='#contact'>Contact Us</a></li>
+        <li><Link className='uppercase' to='/allCampaign'>All Campaign</Link></li>
+        
+        {user? <>
+            <li><Link className='uppercase' to='/addCampaign'>Add New Campaign</Link></li>
+            <li><Link className='uppercase' to='/myCampaign'>My Campaign</Link></li> </>  : ""}
+    </>
+
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar fixed z-10 bg-[#38d0db]  text-[#051a1d] lg:py-3  lg:px-32">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -53,21 +64,15 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                        <li><Link to='/'>Home</Link></li>
-                        <li><Link to='/allCampaign'>All Campaign</Link></li>
-                        <li><Link to='/addCampaign'>Add New Campaign</Link></li>
-                        <li><Link to='/myCampaign'>My Campaign</Link></li>
+                        className="menu menu-sm bg-[#38d0db] dropdown-content  rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        {links}
                     </ul>
                 </div>
                 <a className="btn btn-ghost text-xl"><Link to='/'>ChangeMakers</Link></a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><Link to='/'>Home</Link></li>
-                    <li><Link to='/allCampaign'>All Campaign</Link></li>
-                    <li><Link to='/addCampaign'>Add New Campaign</Link></li>
-                    <li><Link to='/myCampaign'>My Campaign</Link></li>
+                    {links}
                 </ul>
             </div>
             <div className="navbar-end flex items-center">
@@ -82,10 +87,10 @@ const Navbar = () => {
 
                 {/* Login/Logout Button */}
                 {user ? (
-                    <button className="btn btn-primary" onClick={submitLogout}>Logout</button>
+                    <button className="btn btn-primary text-black border-none hover:bg-gray-200 bg-[#ebaa8f]" onClick={submitLogout}>Logout</button>
                 ) : (
                     <button>
-                        <Link className="btn btn-primary" to="/login">Login</Link>
+                        <Link className="btn btn-primary text-black border-none hover:bg-gray-200 bg-[#ebaa8f]" to="/login">Login</Link>
                     </button>
                 )}
             </div>

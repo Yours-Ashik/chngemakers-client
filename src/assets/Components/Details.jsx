@@ -11,7 +11,7 @@ const Details = () => {
 
     return (
         <div
-            className="hero min-h-screen my-10 lg:my-20"
+            className="hero min-h-screen  lg:pt-20"
             style={{
                 backgroundImage: `url(${image})`,
             }}>
